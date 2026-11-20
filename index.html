@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>敬宮愛子内親王殿下 Gallery</title>
+<meta name="description" content="敬宮愛子内親王殿下の素敵な瞬間を写真でお届けする、個人運営のファンギャラリーです。">
+<meta name="robots" content="noai, noimageai">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Shippori+Mincho:wght@400;500&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap">
+<style>
+/* Layout: quiet white gallery — wide hero photo, short profile, numbered photo series, guidelines. Accent = leaf green of ゴヨウツツジ (殿下のお印). */
+:root {
+  --bg: #fbfbf8;
+  --surface: #f2f3ee;
+  --fg: #1f2420;
+  --muted: #6b716a;
+  --line: #dfe2da;
+  --accent: #5d7558;
+  --overlay: rgba(18, 21, 18, .92);
+  --on-photo: #ffffff;
+  --font-display: "Cormorant Garamond", "Times New Roman", serif;
+  --font-mincho: "Shippori Mincho", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  --font-body: "Zen Kaku Gothic New", "Hiragino Sans", "Yu Gothic", system-ui, sans-serif;
+  --gutter-l: max(20px, env(safe-area-inset-left, 0px));
+  --gutter-r: max(20px, env(safe-area-inset-right, 0px));
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #141714; --surface: #1c201c; --fg: #e8ebe4; --muted: #9aa197; --line: #2e332d; --accent: #9fbb98;
+    --overlay: rgba(8, 10, 8, .95); color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #141714; --surface: #1c201c; --fg: #e8ebe4; --muted: #9aa197; --line: #2e332d; --accent: #9fbb98;
+  --overlay: rgba(8, 10, 8, .95); color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: var(--font-body); font-size: 15px; line-height: 1.9; letter-spacing: .04em;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; }
+img { display: block; max-width: 100%; }
+.wrap { max-width: 1180px; margin: 0 auto; padding-left: var(--gutter-l); padding-right: var(--gutter-r); }
+.eyebrow { font-family: var(--font-display); font-style: italic; font-size: 1.05rem; letter-spacing: .08em; color: var(--accent); }
+.sec-title { font-family: var(--font-display); font-weight: 400; font-size: clamp(2.6rem, 6vw, 4.2rem); line-height: 1; letter-spacing: .02em; margin: 0; }
+.sec-sub { font-family: var(--font-mincho); font-size: .85rem; letter-spacing: .2em; color: var(--muted); margin: .9rem 0 0; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* header */
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--bg); }
+.site-head {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid transparent; transition: border-color .3s;
+}
+.site-head.scrolled { border-bottom-color: var(--line); }
+.site-head .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 14px; }
+.logo { text-decoration: none; display: flex; align-items: baseline; gap: .55em; white-space: nowrap; }
+.logo-ja { font-family: var(--font-mincho); font-weight: 500; font-size: .98rem; letter-spacing: .16em; }
+.logo-en { font-family: var(--font-display); font-style: italic; font-size: 1.45rem; line-height: 1; letter-spacing: .04em; color: var(--accent); }
+.nav { display: flex; gap: clamp(14px, 3vw, 34px); }
+.nav a { font-family: var(--font-display); font-size: 1.05rem; letter-spacing: .1em; text-decoration: none; position: relative; }
+.nav a::after { content: ""; position: absolute; left: 0; right: 100%; bottom: 2px; height: 1px; background: currentColor; transition: right .35s ease; }
+.nav a:hover::after { right: 0; }
+
+/* hero */
+.hero { padding-top: clamp(12px, 3vw, 28px); }
+.hero-frame { position: relative; overflow: hidden; aspect-ratio: 3 / 2; max-height: 82vh; width: 100%; background: var(--surface); }
+.hero-frame img { width: 100%; height: 100%; object-fit: cover; object-position: 30% 40%; animation: heroIn 2.4s cubic-bezier(.2,.7,.2,1) both; }
+@keyframes heroIn { from { transform: scale(1.06); } to { transform: scale(1); } }
+.hero-frame::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.45), rgba(0,0,0,0) 45%); pointer-events: none; }
+.hero-copy { position: absolute; left: clamp(18px, 4vw, 56px); bottom: clamp(18px, 4vw, 52px); z-index: 1; color: var(--on-photo); }
+.hero-copy p { margin: 0; }
+.hero-en { font-family: var(--font-display); font-style: italic; font-size: clamp(2rem, 5.6vw, 4.6rem); line-height: 1.05; letter-spacing: .01em; text-wrap: balance; }
+.hero-ja { font-family: var(--font-mincho); font-size: clamp(.8rem, 1.6vw, 1rem); letter-spacing: .28em; margin-top: .9em !important; }
+.hero-meta { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-top: 14px; font-family: var(--font-display); font-size: .95rem; letter-spacing: .12em; color: var(--muted); }
+
+/* about */
+.about { padding-block: clamp(80px, 12vw, 150px); }
+.about-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(32px, 6vw, 96px); align-items: start; }
+.lead { font-family: var(--font-mincho); font-size: clamp(1.25rem, 2.4vw, 1.7rem); line-height: 1.9; letter-spacing: .1em; margin: 0 0 1.6em; text-wrap: balance; }
+.about-body p { margin: 0 0 1.4em; max-width: 36em; }
+.profile { margin: 2.4em 0 0; border-top: 1px solid var(--line); }
+.profile div { display: grid; grid-template-columns: 7.5em minmax(0, 1fr); gap: 1em; padding: .95em 0; border-bottom: 1px solid var(--line); }
+.profile dt { font-size: .78rem; letter-spacing: .2em; color: var(--muted); padding-top: .2em; }
+.profile dd { margin: 0; font-family: var(--font-mincho); }
+.quote { font-family: var(--font-display); font-style: italic; font-size: 1.25rem; line-height: 1.6; color: var(--muted); margin-top: 2rem; }
+
+/* gallery */
+.gallery { padding-block: clamp(40px, 8vw, 90px) clamp(80px, 12vw, 150px); border-top: 1px solid var(--line); }
+.gallery-head { display: flex; justify-content: space-between; align-items: end; flex-wrap: wrap; gap: 24px; margin-bottom: clamp(48px, 8vw, 90px); }
+.gallery-note { font-size: .82rem; color: var(--muted); max-width: 26em; margin: 0; }
+.series { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); gap: clamp(24px, 4vw, 64px); padding-block: clamp(36px, 6vw, 70px); }
+.series + .series { border-top: 1px solid var(--line); }
+.series-info { position: sticky; top: 90px; align-self: start; }
+.series-no { font-family: var(--font-display); font-size: clamp(3.4rem, 7vw, 5.6rem); line-height: .9; font-weight: 400; color: var(--accent); }
+.series-title { font-family: var(--font-mincho); font-weight: 500; font-size: 1.15rem; line-height: 1.7; letter-spacing: .12em; margin: 1rem 0 .4rem; text-wrap: balance; }
+.series-count { font-family: var(--font-display); font-size: .95rem; letter-spacing: .14em; color: var(--muted); }
+.series-desc { font-size: .86rem; line-height: 1.95; color: var(--muted); margin: 1.2rem 0 0; max-width: 24em; }
+.photos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(10px, 1.6vw, 22px); }
+.photo { margin: 0; }
+.photo.wide { grid-column: 1 / -1; }
+.photo button { display: block; width: 100%; padding: 0; border: 0; background: var(--surface); cursor: zoom-in; overflow: hidden; position: relative; }
+.photo img { width: 100%; height: auto; transition: transform .9s cubic-bezier(.2,.7,.2,1), opacity .4s; -webkit-user-drag: none; }
+.photo button:hover img { transform: scale(1.035); }
+.photo .hint { position: absolute; right: 10px; bottom: 10px; font-size: .7rem; letter-spacing: .12em; padding: .35em .8em; background: rgba(255,255,255,.88); color: #1f2420; opacity: 0; transform: translateY(4px); transition: .35s; }
+.photo button:hover .hint, .photo button:focus-visible .hint { opacity: 1; transform: none; }
+.photo figcaption { display: flex; justify-content: space-between; gap: 12px; padding-top: .55em; font-family: var(--font-display); font-size: .92rem; letter-spacing: .1em; color: var(--muted); }
+
+/* guideline */
+.guide { background: var(--surface); padding-block: clamp(80px, 12vw, 140px); }
+.guide-grid { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: clamp(32px, 6vw, 96px); }
+.guide-intro { font-size: .9rem; color: var(--muted); margin-top: 1.6rem; max-width: 24em; }
+.rules { list-style: none; margin: 0; padding: 0; counter-reset: r; }
+.rules li { counter-increment: r; display: grid; grid-template-columns: 3.2em minmax(0, 1fr); gap: .6em; padding: 1.4em 0; border-bottom: 1px solid var(--line); }
+.rules li:first-child { border-top: 1px solid var(--line); }
+.rules li::before { content: counter(r, decimal-leading-zero); font-family: var(--font-display); font-size: 1.3rem; color: var(--accent); line-height: 1.5; }
+.rules h3 { font-family: var(--font-mincho); font-weight: 500; font-size: 1.02rem; letter-spacing: .1em; margin: 0 0 .3em; }
+.rules p { margin: 0; font-size: .88rem; color: var(--muted); }
+.rules .ok { color: var(--fg); }
+.guide-foot { margin-top: 2.2rem; font-size: .82rem; color: var(--muted); }
+
+/* footer */
+.site-foot { padding-block: 56px 40px; }
+.site-foot .wrap { display: flex; justify-content: space-between; align-items: end; flex-wrap: wrap; gap: 24px; }
+.disclaimer { font-size: .78rem; color: var(--muted); max-width: 40em; margin: 0; }
+.foot-logo { margin: 0; }
+.foot-credit { font-family: var(--font-display); font-size: .95rem; letter-spacing: .12em; color: var(--muted); margin: .3rem 0 1rem; }
+.copy { font-family: var(--font-display); font-size: .9rem; letter-spacing: .1em; color: var(--muted); margin-top: .3rem; }
+.to-top { font-family: var(--font-display); letter-spacing: .12em; text-decoration: none; border-bottom: 1px solid currentColor; }
+
+/* lightbox */
+.lb { position: fixed; inset: 0; z-index: 50; background: var(--overlay); display: grid; grid-template-rows: minmax(0, 1fr) auto; padding: calc(env(safe-area-inset-top, 0px) + 56px) max(16px, env(safe-area-inset-right, 0px)) calc(env(safe-area-inset-bottom, 0px) + 16px) max(16px, env(safe-area-inset-left, 0px)); animation: fade .3s ease both; }
+.lb[hidden] { display: none; }
+@keyframes fade { from { opacity: 0; } }
+.lb-stage { position: relative; display: flex; align-items: center; justify-content: center; min-height: 0; }
+.lb-stage img { max-height: 100%; max-width: 100%; object-fit: contain; user-select: none; -webkit-user-drag: none; }
+.lb-btn { position: absolute; background: none; border: 0; color: #fff; font-family: var(--font-display); font-size: 1rem; letter-spacing: .14em; cursor: pointer; padding: 10px 12px; }
+.lb-close { top: calc(env(safe-area-inset-top, 0px) + 10px); right: max(12px, env(safe-area-inset-right, 0px)); }
+.lb-prev, .lb-next { top: 50%; transform: translateY(-50%); font-size: 2rem; line-height: 1; }
+.lb-prev { left: 0; } .lb-next { right: 0; }
+.lb-panel { margin: 14px auto 0; width: min(760px, 100%); background: var(--bg); color: var(--fg); padding: 18px 20px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px 20px; align-items: center; }
+.lb-title { font-family: var(--font-mincho); font-size: .9rem; letter-spacing: .08em; margin: 0; }
+.lb-title small { font-family: var(--font-display); color: var(--muted); letter-spacing: .1em; margin-left: .6em; font-size: .9rem; }
+.lb-notice { grid-column: 1 / -1; font-size: .8rem; line-height: 1.7; color: var(--muted); margin: 0; }
+.lb-notice a { color: var(--accent); }
+.lb-agree { grid-column: 1; display: flex; gap: .6em; align-items: center; font-size: .82rem; cursor: pointer; }
+.lb-agree input { accent-color: var(--accent); width: 16px; height: 16px; }
+.dl { grid-column: 2; grid-row: 1 / span 1; font-family: var(--font-body); font-size: .82rem; letter-spacing: .14em; padding: .8em 1.6em; border: 1px solid var(--fg); background: var(--fg); color: var(--bg); cursor: pointer; transition: opacity .2s; }
+.dl:disabled { opacity: .3; cursor: not-allowed; }
+.lb-status { grid-column: 2; font-size: .75rem; color: var(--accent); text-align: right; min-height: 1em; margin: 0; }
+
+@media (max-width: 860px) {
+  .about-grid, .guide-grid, .series { grid-template-columns: minmax(0, 1fr); }
+  .series-info { position: static; display: flex; align-items: baseline; gap: 18px; flex-wrap: wrap; }
+  .series-title { margin: 0; }
+  .series-desc { flex-basis: 100%; margin-top: .2rem; max-width: 36em; }
+}
+@media (max-width: 560px) {
+  .logo { flex-direction: column; align-items: flex-start; gap: 2px; }
+  .logo-ja { font-size: .74rem; letter-spacing: .12em; }
+  .logo-en { font-size: 1.15rem; }
+  .nav { gap: 12px; }
+  .nav a { font-size: .9rem; letter-spacing: .04em; }
+  .hero-frame { aspect-ratio: 4 / 5; }
+  .hero-frame img { object-position: 22% 50%; }
+  .photos { grid-template-columns: minmax(0, 1fr); }
+  .lb-panel { grid-template-columns: minmax(0, 1fr); }
+  .dl, .lb-status { grid-column: 1; grid-row: auto; text-align: left; }
+}
+</style>
+<style>[hidden]{display:none!important}body{margin:0}</style>
+</head>
+<body>
+
+<header class="site-head" id="top">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="敬宮愛子内親王殿下 Gallery"><span class="logo-ja">敬宮愛子内親王殿下</span><span class="logo-en">Gallery</span></a>
+    <nav class="nav" aria-label="ページ内">
+      <a href="#about">About</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#guideline">Guideline</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero wrap" aria-label="トップ">
+    <div class="hero-frame">
+      <img src="img/hero.jpg" alt="車の窓から笑顔で手を振られる愛子さま" fetchpriority="high">
+      <div class="hero-copy">
+        <p class="hero-en">A smile that<br>warms the day.</p>
+        <p class="hero-ja">その微笑みに、やさしい明日を。</p>
+      </div>
+    </div>
+    <div class="hero-meta"><span>Photo Gallery of Princess Aiko</span><span>Photographer — ほんみつ</span></div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="wrap about-grid">
+      <div>
+        <p class="eyebrow">About</p>
+        <h2 class="sec-title">Princess<br>Aiko</h2>
+        <p class="sec-sub">敬宮愛子内親王殿下</p>
+        <p class="quote">“Respect others,<br>and be loved by them.”</p>
+      </div>
+      <div class="about-body">
+        <p class="lead">窓越しに向けられる、あの笑顔。<br>ひとつの仕草が、見る人の一日を明るくする。</p>
+        <p>天皇皇后両陛下の長女としてお生まれになった愛子さま。ご称号の「敬宮（としのみや）」には、人を敬い、人からも敬われるようにという願いが込められています。</p>
+        <p>大学で日本の言葉と文学を学ばれたのち、社会人として日本赤十字社でお仕事をされながら、ご公務にも誠実に向き合っておられます。沿道の一人ひとりに丁寧に手を振られる姿は、同じ時代を生きる私たちにとって、静かな励ましです。</p>
+        <p>このギャラリーは、そんな愛子さまの素敵な瞬間を、同世代の皆さんと分かち合いたいという思いから生まれました。</p>
+        <dl class="profile">
+          <div><dt>ご称号</dt><dd>敬宮（としのみや）</dd></div>
+          <div><dt>お誕生日</dt><dd>2001年12月1日</dd></div>
+          <div><dt>お印</dt><dd>ゴヨウツツジ（白い花をつける山のツツジ）</dd></div>
+          <div><dt>学び</dt><dd>学習院大学 文学部 日本語日本文学科 ご卒業</dd></div>
+          <div><dt>いま</dt><dd>日本赤十字社にご勤務、ご公務にもご精励</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery" id="gallery">
+    <div class="wrap">
+      <div class="gallery-head">
+        <div>
+          <p class="eyebrow">Gallery</p>
+          <h2 class="sec-title">Moments</h2>
+        </div>
+        <p class="gallery-note">写真をクリックすると大きく表示され、利用ガイドラインに同意のうえダウンロードできます。</p>
+      </div>
+      <div id="series-list"></div>
+    </div>
+  </section>
+
+  <section class="guide" id="guideline">
+    <div class="wrap guide-grid">
+      <div>
+        <p class="eyebrow">Guideline</p>
+        <h2 class="sec-title">Terms<br>of Use</h2>
+        <p class="sec-sub">利用ガイドライン</p>
+        <p class="guide-intro">愛子さまへの敬意と、写真を楽しむ皆さんの気持ちを守るためのお約束です。写真をダウンロード・利用した時点で、以下に同意いただいたものとみなします。</p>
+      </div>
+      <div>
+        <ol class="rules">
+          <li><div><h3>個人で楽しむ範囲でご利用ください</h3><p class="ok">スマートフォンの壁紙、個人の鑑賞、出典を明記したSNSでの紹介はご自由にどうぞ。</p></div></li>
+          <li><div><h3>誹謗中傷・名誉を傷つける利用の禁止</h3><p>愛子さまや皇室の方々、その他の人物を貶める投稿、揶揄、からかいを目的とした利用は禁止します。</p></div></li>
+          <li><div><h3>対立や論争をあおる利用の禁止</h3><p>政治的主張、皇位継承などをめぐる議論、特定の人物・団体への攻撃の材料として使用しないでください。</p></div></li>
+          <li><div><h3>加工・合成・改変の禁止</h3><p>コラージュ、顔の差し替え、ディープフェイク、ミーム化、文字入れなど、写真の意味を変える加工はお控えください。トリミングは鑑賞目的に限ります。</p></div></li>
+          <li><div><h3>AI学習・生成AIへの利用の禁止</h3><p>機械学習の学習データ、生成AIへの入力（画像生成・動画生成・音声合成の素材）、データセットへの収集を禁止します。</p></div></li>
+          <li><div><h3>商用利用・再配布の禁止</h3><p>販売、グッズ化、広告、収益化を目的とした投稿、まとめサイトや他サイトへの転載・再配布はできません。</p></div></li>
+          <li><div><h3>なりすまし・誤解を招く利用の禁止</h3><p>公式の写真であるかのような表示や、本人・関係機関の発信と誤解される使い方はしないでください。</p></div></li>
+          <li><div><h3>SNSでご紹介いただく際は</h3><p class="ok">「敬宮愛子内親王殿下 Gallery より」など出典を添え、温かい言葉とともにシェアしていただけると嬉しいです。</p></div></li>
+        </ol>
+        <p class="guide-foot">ガイドラインに反する利用を確認した場合、削除のお願いや必要な対応を行うことがあります。内容は予告なく更新されることがあります。</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div>
+      <p class="foot-logo"><span class="logo-ja">敬宮愛子内親王殿下</span> <span class="logo-en">Gallery</span></p>
+      <p class="foot-credit">Photographer — ほんみつ</p>
+      <p class="disclaimer">本サイトは愛子さまを応援する個人が運営する非公式のファンサイトです。宮内庁・皇室および関係機関とは一切関係ありません。掲載写真の著作権は撮影者に帰属します。</p>
+      <p class="copy">© 2026 敬宮愛子内親王殿下 Gallery</p>
+    </div>
+    <a class="to-top" href="#top">Back to top</a>
+  </div>
+</footer>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="写真の拡大表示">
+  <div class="lb-stage">
+    <img id="lb-img" alt="">
+    <button class="lb-btn lb-prev" id="lb-prev" aria-label="前の写真">‹</button>
+    <button class="lb-btn lb-next" id="lb-next" aria-label="次の写真">›</button>
+  </div>
+  <button class="lb-btn lb-close" id="lb-close">Close ✕</button>
+  <div class="lb-panel">
+    <p class="lb-title" id="lb-title"></p>
+    <button class="dl" id="lb-dl" disabled>ダウンロード</button>
+    <p class="lb-notice">ダウンロードの前に<a href="#guideline" id="lb-guide">利用ガイドライン</a>をご確認ください。誹謗中傷・対立をあおる投稿・加工やAI学習・商用利用はご遠慮ください。</p>
+    <label class="lb-agree" for="lb-check"><input type="checkbox" id="lb-check">利用ガイドラインに同意します</label>
+    <p class="lb-status" id="lb-status" aria-live="polite"></p>
+  </div>
+</div>
+
+<script>
+const SERIES = [
+  { no: "01", title: "早慶戦での天覧試合", en: "Waseda vs. Keio", desc: "天皇陛下とお並びになり、スタンドの観客へ手を振り、拍手を送られる愛子さま。春らしい若草色のジャケットが、球場の空気をやわらかく彩ります。", photos: [["s1-01", 1, 1], ["s1-02", 1, 1]] },
+  { no: "02", title: "園遊会に参加される愛子さま", en: "Garden Party", desc: "淡い色合いのお着物で、車窓から笑顔を向けられる愛子さま。口元に手を添えてほほえまれる、飾らない表情が印象的です。", photos: [["s2-01", 4396, 3553], ["s2-02", 4272, 3324], ["s2-03", 4798, 3199], ["s2-04", 5516, 4030]] },
+  { no: "03", title: "シンガポールご出発", en: "Departure for Singapore", desc: "淡いラベンダー色の装いに真珠のネックレス。お見送りの人々一人ひとりに、明るい笑顔で応えられる出発の朝のひとときです。", photos: [["s3-01", 4898, 3526], ["s3-02", 4326, 2892], ["s3-03", 4528, 3418]] }
+];
+const flat = [];
+const list = document.getElementById("series-list");
+SERIES.forEach(s => {
+  const sec = document.createElement("article");
+  sec.className = "series";
+  sec.innerHTML = `<div class="series-info"><div class="series-no">${s.no}</div><h3 class="series-title">${s.title}</h3><div class="series-count">${s.photos.length} photos</div><p class="series-desc">${s.desc}</p></div><div class="photos"></div>`;
+  const grid = sec.querySelector(".photos");
+  s.photos.forEach(([id, w, h], i) => {
+    const idx = flat.length;
+    flat.push({ id, series: s, n: i + 1 });
+    const fig = document.createElement("figure");
+    fig.className = "photo" + (s.photos.length % 2 === 1 && i === 0 ? " wide" : "");
+    const label = `${s.title} ${String(i + 1).padStart(2, "0")}`;
+    fig.innerHTML = `<button type="button" aria-label="${label} を拡大"><img src="img/${id}-s.jpg" width="${w}" height="${h}" alt="${label}" loading="lazy" draggable="false"><span class="hint">View / Download</span></button>`;
+    fig.querySelector("button").addEventListener("click", () => openLb(idx));
+    grid.appendChild(fig);
+  });
+  list.appendChild(sec);
+});
+
+const head = document.querySelector(".site-head");
+addEventListener("scroll", () => head.classList.toggle("scrolled", scrollY > 20), { passive: true });
+
+// lightbox
+const lb = document.getElementById("lb"), lbImg = document.getElementById("lb-img"), lbTitle = document.getElementById("lb-title");
+const check = document.getElementById("lb-check"), dl = document.getElementById("lb-dl"), status = document.getElementById("lb-status");
+let cur = 0, lastFocus = null, downloadsApi;
+function show(i) {
+  cur = (i + flat.length) % flat.length;
+  const p = flat[cur];
+  lbImg.src = `img/${p.id}.jpg`;
+  lbImg.alt = `${p.series.title} ${p.n}`;
+  lbTitle.textContent = p.series.title;
+  status.textContent = "";
+}
+function openLb(i) { lastFocus = document.activeElement; show(i); lb.hidden = false; document.body.style.overflow = "hidden"; document.getElementById("lb-close").focus(); }
+function closeLb() { lb.hidden = true; document.body.style.overflow = ""; lastFocus && lastFocus.focus(); }
+document.getElementById("lb-close").onclick = closeLb;
+document.getElementById("lb-prev").onclick = () => show(cur - 1);
+document.getElementById("lb-next").onclick = () => show(cur + 1);
+document.getElementById("lb-guide").onclick = () => closeLb();
+lb.addEventListener("click", e => { if (e.target === lb || e.target.classList.contains("lb-stage")) closeLb(); });
+addEventListener("keydown", e => {
+  if (lb.hidden) return;
+  if (e.key === "Escape") closeLb();
+  if (e.key === "ArrowLeft") show(cur - 1);
+  if (e.key === "ArrowRight") show(cur + 1);
+});
+lbImg.addEventListener("contextmenu", e => e.preventDefault());
+check.addEventListener("change", () => { dl.disabled = !check.checked; });
+
+(async () => {
+  try { downloadsApi = window.claude && window.claude.use && await window.claude.use("downloads"); } catch (_) { downloadsApi = null; }
+})();
+
+dl.addEventListener("click", async () => {
+  if (!check.checked) return;
+  const p = flat[cur];
+  const filename = `aiko-gallery_${p.id}.jpg`;
+  if (!downloadsApi && window.claude && window.claude.use) {
+    try { downloadsApi = await window.claude.use("downloads"); } catch (_) {}
+  }
+  if (!downloadsApi) {
+    // 通常のWebサイト（GitHub Pages など）ではリンクから直接保存
+    const a = document.createElement("a");
+    a.href = `img/${p.id}.jpg`; a.download = filename;
+    document.body.appendChild(a); a.click(); a.remove();
+    status.textContent = "保存しました。ガイドラインを守ってお楽しみください。";
+    return;
+  }
+  status.textContent = "準備しています…";
+  try {
+    const blob = await (await fetch(`img/${p.id}.jpg`)).blob();
+    await downloadsApi.save({ filename, data: blob });
+    status.textContent = "保存しました。ガイドラインを守ってお楽しみください。";
+  } catch (err) {
+    const code = err && err.code;
+    status.textContent = code === "declined" ? "保存をキャンセルしました。"
+      : code === "rate_limited" ? "少し待ってからもう一度お試しください。"
+      : "ダウンロードできませんでした。";
+  }
+});
+</script>
+
+</body>
+</html>
